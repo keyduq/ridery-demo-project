@@ -1,0 +1,16 @@
+{
+  "name": "ridery-demo-project",
+  "version": "1.0.0",
+  "description": "Demo projecto for Ridery",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keyvin Duque <thkeyduq@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.4.3",
+    "passport": "^0.7.0"
+  }
+}
