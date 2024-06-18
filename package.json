@@ -4,6 +4,8 @@
   "description": "Demo projecto for Ridery",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "seed": "node seeds/create-users.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Keyvin Duque <thkeyduq@gmail.com>",

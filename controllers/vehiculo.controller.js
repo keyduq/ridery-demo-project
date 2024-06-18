@@ -14,7 +14,7 @@ async function createVehiculo(req, res) {
     let flota = 'economico'
     if (anio >= 2018 && marca === 'Chevrolet' && (modelo === 'Aveo' || modelo === 'Optra')) {
       flota = 'espectacular';
-    } else if (anio >= 2015 && marca === 'Toyota' && (modelo === 'Hilux' || modelo === 'Fortuner' || modelo === 'Prado')) {
+    } else if (anio >= 2015 && marca === 'Toyota' && (modelo === 'Hilux' || modelo === 'Fortunner' || modelo === 'Prado')) {
       flota = 'pickup';
     }
 
