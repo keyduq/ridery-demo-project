@@ -22,7 +22,7 @@ async function login(req, res) {
       return res.status(401).json({ message: 'Credenciales incorrectas' });
     }
 
-    const token = jwt.sign({ id: user._id }, config.jwtSecret, { expiresIn: '1d' });
+    const token = jwt.sign({ id: user._id }, config.jwtSecret, { expiresIn: config.jwtExpiresIn });
     return res.json({ token });
   } catch (error) {
     return res.status(500).json({ message: error.message });
