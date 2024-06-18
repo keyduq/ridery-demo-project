@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "seed": "node seeds/create-users.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest"
   },
   "author": "Keyvin Duque <thkeyduq@gmail.com>",
   "license": "MIT",
@@ -16,5 +16,10 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^9.3.0",
+    "supertest": "^7.0.0"
   }
 }

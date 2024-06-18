@@ -16,11 +16,18 @@ app.use('/api', userRoutes);
 app.use('/api/vehiculos', auth, vehiculoRoutes);
 
 // Conectar a MongoDB e iniciar el api
-db.connect(config.mongoUri)
-  .then(() => {
-    console.log('Conectado a MongoDB');
-    app.listen(config.port, () => {
-      console.log(`Server running at http://localhost:${config.port}`);
-    });
-  })
-  .catch(error => console.error(error));
+if (process.env.NODE_ENV !== 'test') {
+  db.connect(config.mongoUri)
+    .then(() => {
+      console.log('Conectado a MongoDB');
+    })
+    .catch(error => console.error(error));
+}
+const server = app.listen(config.port, () => {
+  console.log(`Server running at http://localhost:${config.port}`);
+});
+
+module.exports = {
+  app,
+  server,
+}

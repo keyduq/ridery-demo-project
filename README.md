@@ -74,6 +74,14 @@ Este proyecto utiliza Node.js, Express.js y MongoDB para crear una API REST que 
 - Headers:
   - `Authorization: Bearer {JWT Token}`
 
+## Unit Tests
+
+Las tests unitarias validan si el api funciona correctamente y si cumple la condición especificada en el documento de requerimientos. Para correr las tests se debe ejecutar el comando:
+
+```bash
+npm test
+```
+
 ## Notas
 
 - La API cuenta con un middleware de autenticación que verifica el JWT token en cada request.
