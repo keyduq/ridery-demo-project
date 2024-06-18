@@ -5,6 +5,7 @@ let mongod;
 async function connect() {
   let dbUri = config.mongoUri;
   if (process.env.NODE_ENV === 'test') {
+    // utiliza un mongodb en memoria para pruebas
     const { MongoMemoryServer } = require('mongodb-memory-server');
     mongod = await MongoMemoryServer.create();
     dbUri = mongod.getUri();
@@ -16,6 +17,7 @@ async function disconnect() {
   try {
     await mongoose.connection.close();
     if (mongod) {
+      // detiene y elimina el mongodb en memoria en caso de tests
       await mongod.stop();
     }
   } catch (err) {

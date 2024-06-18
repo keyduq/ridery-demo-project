@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const vehiculoSchema = new mongoose.Schema({
-  marca: { type: String, required: true },
-  modelo: { type: String, required: true },
+  marca: { type: mongoose.Schema.Types.ObjectId, ref: 'Marca', required: true },
+  modelo: { type: mongoose.Schema.Types.ObjectId, ref: 'Modelo', required: true },
   anio: { type: Number, required: true },
   flota: { type: String, enum: ['economico', 'espectacular', 'pickup'], required: true },
 });

@@ -76,7 +76,7 @@ Este proyecto utiliza Node.js, Express.js y MongoDB para crear una API REST que 
 
 ## Unit Tests
 
-Las tests unitarias validan si el api funciona correctamente y si cumple la condición especificada en el documento de requerimientos. Para correr las tests se debe ejecutar el comando:
+Las tests unitarias validan si el api funciona correctamente y si cumple la condición especificada en el documento de requerimientos. Para correr las pruebas se debe ejecutar el comando:
 
 ```bash
 npm test

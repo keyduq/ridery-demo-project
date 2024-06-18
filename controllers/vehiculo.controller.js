@@ -1,6 +1,8 @@
+const Marca = require('../models/marca.model');
+const Modelo = require('../models/modelo.model');
 const Vehiculo = require('../models/vehiculo.model');
 
-/** 
+/**
  * Crea un vehículo
  */
 async function createVehiculo(req, res) {
@@ -8,18 +10,52 @@ async function createVehiculo(req, res) {
     const { marca, modelo, anio } = req.body;
 
     if (!marca || !modelo || !anio) {
-      return res.status(400).json({ message: 'Marca, modelo y año son requeridos' });
+      return res
+        .status(400)
+        .json({ message: 'Marca, modelo y año son requeridos' });
     }
 
-    let flota = 'economico'
-    if (anio >= 2018 && marca === 'Chevrolet' && (modelo === 'Aveo' || modelo === 'Optra')) {
+    // busca si existe la marca, si no la agrega
+    let marcaModel = await Marca.exists({ nombre: marca });
+
+    if (!marcaModel) {
+      marcaModel = new Marca({ nombre: marca });
+      await marcaModel.save();
+    }
+
+    // busca si existe el modelo asociado a la marca si no la agrega
+    let modeloModel = await Modelo.exists({
+      nombre: modelo,
+      marca: marcaModel._id,
+    });
+
+    if (!modeloModel) {
+      modeloModel = new Modelo({ nombre: modelo, marca: marcaModel._id });
+      await modeloModel.save();
+    }
+
+    let flota = 'economico';
+    if (
+      anio >= 2018 &&
+      marca === 'Chevrolet' &&
+      (modelo === 'Aveo' || modelo === 'Optra')
+    ) {
       flota = 'espectacular';
-    } else if (anio >= 2015 && marca === 'Toyota' && (modelo === 'Hilux' || modelo === 'Fortunner' || modelo === 'Prado')) {
+    } else if (
+      anio >= 2015 &&
+      marca === 'Toyota' &&
+      (modelo === 'Hilux' || modelo === 'Fortunner' || modelo === 'Prado')
+    ) {
       flota = 'pickup';
     }
 
-    const vehiculo = new Vehiculo({ marca, modelo, anio, flota });
-    await vehiculo.save();
+    let vehiculo = new Vehiculo({
+      marca: marcaModel._id,
+      modelo: modeloModel._id,
+      anio,
+      flota,
+    });
+    vehiculo = await vehiculo.save().then(v => v.populate('marca modelo'));
     return res.status(201).json(vehiculo);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -36,7 +72,7 @@ async function getVehiculos(req, res) {
     if (flota) {
       query.flota = flota;
     }
-    const vehiculos = await Vehiculo.find(query);
+    const vehiculos = await Vehiculo.find(query).populate('marca modelo');
 
     if (!vehiculos || vehiculos.length === 0) {
       return res.status(404).json({ message: 'No se encontraron vehículos' });
@@ -51,4 +87,4 @@ async function getVehiculos(req, res) {
 module.exports = {
   createVehiculo,
   getVehiculos,
-}
+};
