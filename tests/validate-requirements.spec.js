@@ -6,6 +6,9 @@ const db = require('../db');
 const User = require('../models/user.model');
 const Vehiculo = require('../models/vehiculo.model');
 
+/**
+ * Tests para verificar que el proyecto funcione correctamente y validar que cumpla el requerimiento
+ */
 describe('Validar requerimientos', () => {
   let token = null;
   let espectacularTotal = 0;

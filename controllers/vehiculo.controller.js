@@ -9,6 +9,7 @@ async function createVehiculo(req, res) {
   try {
     const { marca, modelo, anio } = req.body;
 
+    // valida si los campos requeridos están presentes
     if (!marca || !modelo || !anio) {
       return res
         .status(400)
@@ -34,6 +35,7 @@ async function createVehiculo(req, res) {
       await modeloModel.save();
     }
 
+    // lógica para determinar la flota
     let flota = 'economico';
     if (
       anio >= 2018 &&
@@ -49,6 +51,7 @@ async function createVehiculo(req, res) {
       flota = 'pickup';
     }
 
+    // guarda vehiculo
     let vehiculo = new Vehiculo({
       marca: marcaModel._id,
       modelo: modeloModel._id,

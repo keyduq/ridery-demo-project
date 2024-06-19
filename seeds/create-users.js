@@ -1,6 +1,9 @@
 const db = require('../db');
 const User = require('../models/user.model');
 
+/**
+ * Script para generar un usuario de prueba en la base de datos
+ */
 async function createUsers() {
   const rideryUser = new User({
     username: 'ridery',
