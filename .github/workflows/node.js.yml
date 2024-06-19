@@ -14,8 +14,8 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      JWT_SECRET=string_test
-      JWT_EXPIRES_IN=1d
+      JWT_SECRET: string_test
+      JWT_EXPIRES_IN: 1d
 
     strategy:
       matrix:
