@@ -86,4 +86,4 @@ npm test
 
 - La API cuenta con un middleware de autenticación que verifica el JWT token en cada request.
 - Por defecto el JWT token expira en 1 día, esto se puede modificar en el archivo `.env`.
-- Hay una versión del API en producción, la URL es: [ridery-demo-project.fly.dev](https://ridery-demo-project.fly.dev/)
+- Hay una versión del API en producción, la URL es: [https://ridery-demo-project.fly.dev/](https://ridery-demo-project.fly.dev/)
