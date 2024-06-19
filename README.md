@@ -1,4 +1,5 @@
 # Proyecto API demo para la gestión de flota de vehículos
+[![Node.js CI](https://github.com/keyduq/ridery-demo-project/actions/workflows/node.js.yml/badge.svg)](https://github.com/keyduq/ridery-demo-project/actions/workflows/node.js.yml)
 
 Este proyecto utiliza Node.js, Express.js y MongoDB para crear una API REST que permite gestionar una flota de vehículos con autenticación JWT Bearer.
 
