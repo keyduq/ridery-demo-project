@@ -1,4 +1,4 @@
-# Proyecto API demo para la Gestión de flota de vehículos.
+# Proyecto API demo para la gestión de flota de vehículos
 
 Este proyecto utiliza Node.js, Express.js y MongoDB para crear una API REST que permite gestionar una flota de vehículos con autenticación JWT Bearer.
 
