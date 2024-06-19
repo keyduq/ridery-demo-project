@@ -4,9 +4,8 @@ Este proyecto utiliza Node.js, Express.js y MongoDB para crear una API REST que 
 
 ## Requisitos
 
-- Node.js >= 20
+- Node.js >= 16
 - MongoDB >= 4.4
-- npm >= 6.14
 - Este proyecto usa bcrypt (usado para el hash de password del usuario) que depende de node-gyp para compilarse, en caso de correrlo en Windows, se debe tener instalado Python 2.7+ y Visual Studio 2015 o superior, o utilizar WSL con Ubuntu e instalar la dependencia con el comando `sudo apt install build-essential`.
 
 ## Configuración del proyecto
