@@ -19,7 +19,7 @@ Este proyecto utiliza Node.js, Express.js y MongoDB para crear una API REST que 
 3. Copia el archivo `.env.example` a `.env`, coloca un string random en `JWT_SECRET` y modifica las otras variables de ser necesario, el archivo quedaria como:
     ```env
     PORT=3000
-    MONGODB_URI=mongodb://localhost:27017/ridery-demo
+    MONGO_URI=mongodb://localhost:27017/ridery-demo
     JWT_SECRET=un_string_random
     JWT_EXPIRES_IN=1d
     ```
